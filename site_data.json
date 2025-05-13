@@ -1,0 +1,555 @@
+{
+  "verses": [
+    {
+      "text": "Seeing the crowds, he went up on the mountain, and when he sat down, his disciples came to him.\n\n  ",
+      "reference": "Matthew 5:1"
+    },
+    {
+      "text": "And he opened his mouth and taught them, saying:\n\n  ",
+      "reference": "Matthew 5:2"
+    },
+    {
+      "text": "\"Blessed are the poor in spirit, for theirs is the kingdom of heaven.\n\n  ",
+      "reference": "Matthew 5:3"
+    },
+    {
+      "text": "\"Blessed are those who mourn, for they shall be comforted.\n\n  ",
+      "reference": "Matthew 5:4"
+    },
+    {
+      "text": "\"Blessed are the meek, for they shall inherit the earth.\n\n  ",
+      "reference": "Matthew 5:5"
+    },
+    {
+      "text": "\"Blessed are those who hunger and thirst for righteousness, for they shall be satisfied.\n\n  ",
+      "reference": "Matthew 5:6"
+    },
+    {
+      "text": "\"Blessed are the merciful, for they shall receive mercy.\n\n  ",
+      "reference": "Matthew 5:7"
+    },
+    {
+      "text": "\"Blessed are the pure in heart, for they shall see God.\n\n  ",
+      "reference": "Matthew 5:8"
+    },
+    {
+      "text": "\"Blessed are the peacemakers, for they shall be called sons of God.\n\n  ",
+      "reference": "Matthew 5:9"
+    },
+    {
+      "text": "\"Blessed are those who are persecuted for righteousness' sake, for theirs is the kingdom of heaven.\n\n  ",
+      "reference": "Matthew 5:10"
+    },
+    {
+      "text": "\"Blessed are you when others revile you and persecute you and utter all kinds of evil against you falsely on my account. ",
+      "reference": "Matthew 5:11"
+    },
+    {
+      "text": "Rejoice and be glad, for your reward is great in heaven, for so they persecuted the prophets who were before you.\n\n  ",
+      "reference": "Matthew 5:12"
+    },
+    {
+      "text": "\"You are the salt of the earth, but if salt has lost its taste, how shall its saltiness be restored? It is no longer good for anything except to be thrown out and trampled under people's feet.\n\n  ",
+      "reference": "Matthew 5:13"
+    },
+    {
+      "text": "\"You are the light of the world. A city set on a hill cannot be hidden. ",
+      "reference": "Matthew 5:14"
+    },
+    {
+      "text": "Nor do people light a lamp and put it under a basket, but on a stand, and it gives light to all in the house. ",
+      "reference": "Matthew 5:15"
+    },
+    {
+      "text": "In the same way, let your light shine before others, so that they may see your good works and give glory to your Father who is in heaven.\n\n  ",
+      "reference": "Matthew 5:16"
+    },
+    {
+      "text": "\"Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them. ",
+      "reference": "Matthew 5:17"
+    },
+    {
+      "text": "For truly, I say to you, until heaven and earth pass away, not an iota, not a dot, will pass from the Law until all is accomplished. ",
+      "reference": "Matthew 5:18"
+    },
+    {
+      "text": "Therefore whoever relaxes one of the least of these commandments and teaches others to do the same will be called least in the kingdom of heaven, but whoever does them and teaches them will be called great in the kingdom of heaven. ",
+      "reference": "Matthew 5:19"
+    },
+    {
+      "text": "For I tell you, unless your righteousness exceeds that of the scribes and Pharisees, you will never enter the kingdom of heaven.\n\n  ",
+      "reference": "Matthew 5:20"
+    },
+    {
+      "text": "\"You have heard that it was said to those of old, 'You shall not murder; and whoever murders will be liable to judgment.' ",
+      "reference": "Matthew 5:21"
+    },
+    {
+      "text": "But I say to you that everyone who is angry with his brother will be liable to judgment; whoever insults his brother will be liable to the council; and whoever says, 'You fool!' will be liable to the hell of fire. ",
+      "reference": "Matthew 5:22"
+    },
+    {
+      "text": "So if you are offering your gift at the altar and there remember that your brother has something against you, ",
+      "reference": "Matthew 5:23"
+    },
+    {
+      "text": "leave your gift there before the altar and go. First be reconciled to your brother, and then come and offer your gift. ",
+      "reference": "Matthew 5:24"
+    },
+    {
+      "text": "Come to terms quickly with your accuser while you are going with him to court, lest your accuser hand you over to the judge, and the judge to the guard, and you be put in prison. ",
+      "reference": "Matthew 5:25"
+    },
+    {
+      "text": "Truly, I say to you, you will never get out until you have paid the last penny.\n\n  ",
+      "reference": "Matthew 5:26"
+    },
+    {
+      "text": "\"You have heard that it was said, 'You shall not commit adultery.' ",
+      "reference": "Matthew 5:27"
+    },
+    {
+      "text": "But I say to you that everyone who looks at a woman with lustful intent has already committed adultery with her in his heart. ",
+      "reference": "Matthew 5:28"
+    },
+    {
+      "text": "If your right eye causes you to sin, tear it out and throw it away. For it is better that you lose one of your members than that your whole body be thrown into hell. ",
+      "reference": "Matthew 5:29"
+    },
+    {
+      "text": "And if your right hand causes you to sin, cut it off and throw it away. For it is better that you lose one of your members than that your whole body go into hell.\n\n  ",
+      "reference": "Matthew 5:30"
+    },
+    {
+      "text": "\"It was also said, 'Whoever divorces his wife, let him give her a certificate of divorce.' ",
+      "reference": "Matthew 5:31"
+    },
+    {
+      "text": "But I say to you that everyone who divorces his wife, except on the ground of sexual immorality, makes her commit adultery, and whoever marries a divorced woman commits adultery.\n\n  ",
+      "reference": "Matthew 5:32"
+    },
+    {
+      "text": "\"Again you have heard that it was said to those of old, 'You shall not swear falsely, but shall perform to the Lord what you have sworn.' ",
+      "reference": "Matthew 5:33"
+    },
+    {
+      "text": "But I say to you, Do not take an oath at all, either by heaven, for it is the throne of God, ",
+      "reference": "Matthew 5:34"
+    },
+    {
+      "text": "or by the earth, for it is his footstool, or by Jerusalem, for it is the city of the great King. ",
+      "reference": "Matthew 5:35"
+    },
+    {
+      "text": "And do not take an oath by your head, for you cannot make one hair white or black. ",
+      "reference": "Matthew 5:36"
+    },
+    {
+      "text": "Let what you say be simply 'Yes' or 'No'; anything more than this comes from evil.\n\n  ",
+      "reference": "Matthew 5:37"
+    },
+    {
+      "text": "\"You have heard that it was said, 'An eye for an eye and a tooth for a tooth.' ",
+      "reference": "Matthew 5:38"
+    },
+    {
+      "text": "But I say to you, Do not resist the one who is evil. But if anyone slaps you on the right cheek, turn to him the other also. ",
+      "reference": "Matthew 5:39"
+    },
+    {
+      "text": "And if anyone would sue you and take your tunic, let him have your cloak as well. ",
+      "reference": "Matthew 5:40"
+    },
+    {
+      "text": "And if anyone forces you to go one mile, go with him two miles. ",
+      "reference": "Matthew 5:41"
+    },
+    {
+      "text": "Give to the one who begs from you, and do not refuse the one who would borrow from you.\n\n  ",
+      "reference": "Matthew 5:42"
+    },
+    {
+      "text": "\"You have heard that it was said, 'You shall love your neighbor and hate your enemy.' ",
+      "reference": "Matthew 5:43"
+    },
+    {
+      "text": "But I say to you, Love your enemies and pray for those who persecute you, ",
+      "reference": "Matthew 5:44"
+    },
+    {
+      "text": "so that you may be sons of your Father who is in heaven. For he makes his sun rise on the evil and on the good, and sends rain on the just and on the unjust. ",
+      "reference": "Matthew 5:45"
+    },
+    {
+      "text": "For if you love those who love you, what reward do you have? Do not even the tax collectors do the same? ",
+      "reference": "Matthew 5:46"
+    },
+    {
+      "text": "And if you greet only your brothers, what more are you doing than others? Do not even the Gentiles do the same? ",
+      "reference": "Matthew 5:47"
+    },
+    {
+      "text": "You therefore must be perfect, as your heavenly Father is perfect.\n\n  ",
+      "reference": "Matthew 5:48"
+    },
+    {
+      "text": "\"Beware of practicing your righteousness before other people in order to be seen by them, for then you will have no reward from your Father who is in heaven.\n\n  ",
+      "reference": "Matthew 6:1"
+    },
+    {
+      "text": "\"Thus, when you give to the needy, sound no trumpet before you, as the hypocrites do in the synagogues and in the streets, that they may be praised by others. Truly, I say to you, they have received their reward. ",
+      "reference": "Matthew 6:2"
+    },
+    {
+      "text": "But when you give to the needy, do not let your left hand know what your right hand is doing, ",
+      "reference": "Matthew 6:3"
+    },
+    {
+      "text": "so that your giving may be in secret. And your Father who sees in secret will reward you.\n\n  ",
+      "reference": "Matthew 6:4"
+    },
+    {
+      "text": "\"And when you pray, you must not be like the hypocrites. For they love to stand and pray in the synagogues and at the street corners, that they may be seen by others. Truly, I say to you, they have received their reward. ",
+      "reference": "Matthew 6:5"
+    },
+    {
+      "text": "But when you pray, go into your room and shut the door and pray to your Father who is in secret. And your Father who sees in secret will reward you.\n\n  ",
+      "reference": "Matthew 6:6"
+    },
+    {
+      "text": "\"And when you pray, do not heap up empty phrases as the Gentiles do, for they think that they will be heard for their many words. ",
+      "reference": "Matthew 6:7"
+    },
+    {
+      "text": "Do not be like them, for your Father knows what you need before you ask him. ",
+      "reference": "Matthew 6:8"
+    },
+    {
+      "text": "Pray then like this:\n\n    \"Our Father in heaven,\n    hallowed be your name.\n    ",
+      "reference": "Matthew 6:9"
+    },
+    {
+      "text": "Your kingdom come,\n    your will be done,\n        on earth as it is in heaven.\n    ",
+      "reference": "Matthew 6:10"
+    },
+    {
+      "text": "Give us this day our daily bread,\n    ",
+      "reference": "Matthew 6:11"
+    },
+    {
+      "text": "and forgive us our debts,\n        as we also have forgiven our debtors.\n    ",
+      "reference": "Matthew 6:12"
+    },
+    {
+      "text": "And lead us not into temptation,\n        but deliver us from evil.\n    \n    \n      ",
+      "reference": "Matthew 6:13"
+    },
+    {
+      "text": "For if you forgive others their trespasses, your heavenly Father will also forgive you, ",
+      "reference": "Matthew 6:14"
+    },
+    {
+      "text": "but if you do not forgive others their trespasses, neither will your Father forgive your trespasses.\n\n  ",
+      "reference": "Matthew 6:15"
+    },
+    {
+      "text": "\"And when you fast, do not look gloomy like the hypocrites, for they disfigure their faces that their fasting may be seen by others. Truly, I say to you, they have received their reward. ",
+      "reference": "Matthew 6:16"
+    },
+    {
+      "text": "But when you fast, anoint your head and wash your face, ",
+      "reference": "Matthew 6:17"
+    },
+    {
+      "text": "that your fasting may not be seen by others but by your Father who is in secret. And your Father who sees in secret will reward you.\n\n  ",
+      "reference": "Matthew 6:18"
+    },
+    {
+      "text": "\"Do not lay up for yourselves treasures on earth, where moth and rust destroy and where thieves break in and steal, ",
+      "reference": "Matthew 6:19"
+    },
+    {
+      "text": "but lay up for yourselves treasures in heaven, where neither moth nor rust destroys and where thieves do not break in and steal. ",
+      "reference": "Matthew 6:20"
+    },
+    {
+      "text": "For where your treasure is, there your heart will be also.\n\n  ",
+      "reference": "Matthew 6:21"
+    },
+    {
+      "text": "\"The eye is the lamp of the body. So, if your eye is healthy, your whole body will be full of light, ",
+      "reference": "Matthew 6:22"
+    },
+    {
+      "text": "but if your eye is bad, your whole body will be full of darkness. If then the light in you is darkness, how great is the darkness!\n\n  ",
+      "reference": "Matthew 6:23"
+    },
+    {
+      "text": "\"No one can serve two masters, for either he will hate the one and love the other, or he will be devoted to the one and despise the other. You cannot serve God and money.\n\n  ",
+      "reference": "Matthew 6:24"
+    },
+    {
+      "text": "\"Therefore I tell you, do not be anxious about your life, what you will eat or what you will drink, nor about your body, what you will put on. Is not life more than food, and the body more than clothing? ",
+      "reference": "Matthew 6:25"
+    },
+    {
+      "text": "Look at the birds of the air: they neither sow nor reap nor gather into barns, and yet your heavenly Father feeds them. Are you not of more value than they? ",
+      "reference": "Matthew 6:26"
+    },
+    {
+      "text": "And which of you by being anxious can add a single hour to his span of life? ",
+      "reference": "Matthew 6:27"
+    },
+    {
+      "text": "And why are you anxious about clothing? Consider the lilies of the field, how they grow: they neither toil nor spin, ",
+      "reference": "Matthew 6:28"
+    },
+    {
+      "text": "yet I tell you, even Solomon in all his glory was not arrayed like one of these. ",
+      "reference": "Matthew 6:29"
+    },
+    {
+      "text": "But if God so clothes the grass of the field, which today is alive and tomorrow is thrown into the oven, will he not much more clothe you, O you of little faith? ",
+      "reference": "Matthew 6:30"
+    },
+    {
+      "text": "Therefore do not be anxious, saying, 'What shall we eat?' or 'What shall we drink?' or 'What shall we wear?' ",
+      "reference": "Matthew 6:31"
+    },
+    {
+      "text": "For the Gentiles seek after all these things, and your heavenly Father knows that you need them all. ",
+      "reference": "Matthew 6:32"
+    },
+    {
+      "text": "But seek first the kingdom of God and his righteousness, and all these things will be added to you.\n\n  ",
+      "reference": "Matthew 6:33"
+    },
+    {
+      "text": "\"Therefore do not be anxious about tomorrow, for tomorrow will be anxious for itself. Sufficient for the day is its own trouble.\n\n  ",
+      "reference": "Matthew 6:34"
+    },
+    {
+      "text": "\"Judge not, that you be not judged. ",
+      "reference": "Matthew 7:1"
+    },
+    {
+      "text": "For with the judgment you pronounce you will be judged, and with the measure you use it will be measured to you. ",
+      "reference": "Matthew 7:2"
+    },
+    {
+      "text": "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye? ",
+      "reference": "Matthew 7:3"
+    },
+    {
+      "text": "Or how can you say to your brother, 'Let me take the speck out of your eye,' when there is the log in your own eye? ",
+      "reference": "Matthew 7:4"
+    },
+    {
+      "text": "You hypocrite, first take the log out of your own eye, and then you will see clearly to take the speck out of your brother's eye.\n\n  ",
+      "reference": "Matthew 7:5"
+    },
+    {
+      "text": "\"Do not give dogs what is holy, and do not throw your pearls before pigs, lest they trample them underfoot and turn to attack you.\n\n  ",
+      "reference": "Matthew 7:6"
+    },
+    {
+      "text": "\"Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you. ",
+      "reference": "Matthew 7:7"
+    },
+    {
+      "text": "For everyone who asks receives, and the one who seeks finds, and to the one who knocks it will be opened. ",
+      "reference": "Matthew 7:8"
+    },
+    {
+      "text": "Or which one of you, if his son asks him for bread, will give him a stone? ",
+      "reference": "Matthew 7:9"
+    },
+    {
+      "text": "Or if he asks for a fish, will give him a serpent? ",
+      "reference": "Matthew 7:10"
+    },
+    {
+      "text": "If you then, who are evil, know how to give good gifts to your children, how much more will your Father who is in heaven give good things to those who ask him!\n\n  ",
+      "reference": "Matthew 7:11"
+    },
+    {
+      "text": "\"So whatever you wish that others would do to you, do also to them, for this is the Law and the Prophets.\n\n  ",
+      "reference": "Matthew 7:12"
+    },
+    {
+      "text": "\"Enter by the narrow gate. For the gate is wide and the way is easy that leads to destruction, and those who enter by it are many. ",
+      "reference": "Matthew 7:13"
+    },
+    {
+      "text": "For the gate is narrow and the way is hard that leads to life, and those who find it are few.\n\n  ",
+      "reference": "Matthew 7:14"
+    },
+    {
+      "text": "\"Beware of false prophets, who come to you in sheep's clothing but inwardly are ravenous wolves. ",
+      "reference": "Matthew 7:15"
+    },
+    {
+      "text": "You will recognize them by their fruits. Are grapes gathered from thornbushes, or figs from thistles? ",
+      "reference": "Matthew 7:16"
+    },
+    {
+      "text": "So, every healthy tree bears good fruit, but the diseased tree bears bad fruit. ",
+      "reference": "Matthew 7:17"
+    },
+    {
+      "text": "A healthy tree cannot bear bad fruit, nor can a diseased tree bear good fruit. ",
+      "reference": "Matthew 7:18"
+    },
+    {
+      "text": "Every tree that does not bear good fruit is cut down and thrown into the fire. ",
+      "reference": "Matthew 7:19"
+    },
+    {
+      "text": "Thus you will recognize them by their fruits.\n\n  ",
+      "reference": "Matthew 7:20"
+    },
+    {
+      "text": "\"Not everyone who says to me, 'Lord, Lord,' will enter the kingdom of heaven, but the one who does the will of my Father who is in heaven. ",
+      "reference": "Matthew 7:21"
+    },
+    {
+      "text": "On that day many will say to me, 'Lord, Lord, did we not prophesy in your name, and cast out demons in your name, and do many mighty works in your name?' ",
+      "reference": "Matthew 7:22"
+    },
+    {
+      "text": "And then will I declare to them, 'I never knew you; depart from me, you workers of lawlessness.'\n\n  ",
+      "reference": "Matthew 7:23"
+    },
+    {
+      "text": "\"Everyone then who hears these words of mine and does them will be like a wise man who built his house on the rock. ",
+      "reference": "Matthew 7:24"
+    },
+    {
+      "text": "And the rain fell, and the floods came, and the winds blew and beat on that house, but it did not fall, because it had been founded on the rock. ",
+      "reference": "Matthew 7:25"
+    },
+    {
+      "text": "And everyone who hears these words of mine and does not do them will be like a foolish man who built his house on the sand. ",
+      "reference": "Matthew 7:26"
+    },
+    {
+      "text": "And the rain fell, and the floods came, and the winds blew and beat against that house, and it fell, and great was the fall of it.\"\n\n  ",
+      "reference": "Matthew 7:27"
+    },
+    {
+      "text": "And when Jesus finished these sayings, the crowds were astonished at his teaching, ",
+      "reference": "Matthew 7:28"
+    },
+    {
+      "text": "for he was teaching them as one who had authority, and not as their scribes.\n\n",
+      "reference": "Matthew 7:29"
+    }
+  ],
+  "sections": [
+    {
+      "name": "The Beatitudes",
+      "startVerse": 0,
+      "endVerse": 11
+    },
+    {
+      "name": "Salt and Light",
+      "startVerse": 12,
+      "endVerse": 15
+    },
+    {
+      "name": "Christ Came to Fulfill the Law",
+      "startVerse": 16,
+      "endVerse": 19
+    },
+    {
+      "name": "Anger",
+      "startVerse": 20,
+      "endVerse": 25
+    },
+    {
+      "name": "Lust",
+      "startVerse": 26,
+      "endVerse": 29
+    },
+    {
+      "name": "Divorce",
+      "startVerse": 30,
+      "endVerse": 31
+    },
+    {
+      "name": "Oaths",
+      "startVerse": 32,
+      "endVerse": 36
+    },
+    {
+      "name": "Retaliation",
+      "startVerse": 37,
+      "endVerse": 41
+    },
+    {
+      "name": "Love Your Enemies",
+      "startVerse": 42,
+      "endVerse": 47
+    },
+    {
+      "name": "Giving to the Needy",
+      "startVerse": 48,
+      "endVerse": 51
+    },
+    {
+      "name": "The Lord's Prayer",
+      "startVerse": 52,
+      "endVerse": 62
+    },
+    {
+      "name": "Fasting",
+      "startVerse": 63,
+      "endVerse": 65
+    },
+    {
+      "name": "Lay Up Treasures in Heaven",
+      "startVerse": 66,
+      "endVerse": 68
+    },
+    {
+      "name": "Do Not Be Anxious",
+      "startVerse": 69,
+      "endVerse": 81
+    },
+    {
+      "name": "Judging Others",
+      "startVerse": 82,
+      "endVerse": 87
+    },
+    {
+      "name": "Ask, and It Will Be Given",
+      "startVerse": 88,
+      "endVerse": 92
+    },
+    {
+      "name": "The Golden Rule",
+      "startVerse": 93,
+      "endVerse": 95
+    },
+    {
+      "name": "A Tree and Its Fruit",
+      "startVerse": 96,
+      "endVerse": 101
+    },
+    {
+      "name": "I Never Knew You",
+      "startVerse": 102,
+      "endVerse": 104
+    },
+    {
+      "name": "Build Your House on the Rock",
+      "startVerse": 105,
+      "endVerse": 108
+    },
+    {
+      "name": "The Authority of Jesus",
+      "startVerse": 109,
+      "endVerse": 110
+    }
+  ]
+}
