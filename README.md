@@ -2,6 +2,14 @@
 
 A website to assist in memorizing the whole Sermon on the Mount.
 
+It's currently still very much a work-in-progress.
+
+## Build the site
+
+```sh
+uv run main.py
+```
+
 ## Design Plan 
 
 -   Have a `build` folder that'll hold all the output pages - there'll be 111 pages (one for each verse), and an `index.html` homepage that'll have a 1-paragraph intro to the project, a "how to use" section (hopefully 1 paragraph), and then a list of all the pages
