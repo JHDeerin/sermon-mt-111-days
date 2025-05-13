@@ -228,7 +228,7 @@ def build_site(site_data: dict):
                 # TODO: Refactor this garbage
                 "<p>" + (f'<a href="{verse_i}.html">Prev</a>' if verse_i > 0 else "")  + " | " + (f'<a href="{verse_i+2}.html">Next</a>' if verse_i+2 < len(verses) + 1 else "") + "</p>"
             )
-            output_path = Path(f"build/{verse_i+1}.html")
+            output_path = Path(f"docs/{verse_i+1}.html")
             output_path.parent.mkdir(parents=True, exist_ok=True)
             output_path.write_text(html)
     home_page_text = Path("index.html").read_text()
@@ -239,7 +239,7 @@ def build_site(site_data: dict):
             for i in range(len(verses))
         ])
     )
-    output_path = Path("build/index.html")
+    output_path = Path("docs/index.html")
     output_path.write_text(home_page_text)
 
 
