@@ -1,7 +1,7 @@
 [project]
-name = "sermon-on-the-mount-111-days"
+name = "sermon-mt-111-days"
 version = "0.1.0"
-description = "Add your description here"
+description = "Site generator for 'Sermon on the Mount in 111 Days'"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
