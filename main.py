@@ -176,6 +176,8 @@ def make_site_data():
 def reference(start_verse: dict, end_verse: dict) -> str:
     """Get the verse reference string for the passage."""
     start_ref, end_ref = start_verse["reference"], end_verse["reference"]
+    if start_ref == end_ref:
+        return start_ref
     chpt_v_1, chpt_v_2 = start_ref.split(" ")[-1], end_ref.split(" ")[-1]
     chpt1, v1 = chpt_v_1.split(":")
     chpt2, v2 = chpt_v_2.split(":")
@@ -184,12 +186,54 @@ def reference(start_verse: dict, end_verse: dict) -> str:
     return f"{start_ref}-{chpt_v_2}"
 
 
-def main():
+def write_site_data() -> dict:
+    site_data = make_site_data()
     file = Path("site_data.json")
-    file.write_text(json.dumps(make_site_data(), indent=2))
+    file.write_text(json.dumps(site_data, indent=2))
+    return site_data
 
-    # crummy manual test
-    data = json.loads(Path("site_data.json").read_text())
+
+def build_site(site_data: dict):
+    DAY_TEMPLATE_TEXT = Path("template.html").read_text()
+    verses = site_data["verses"]
+    for i, section in enumerate(site_data["sections"]):
+        for verse_i in range(section["startVerse"], section["endVerse"]+1):
+            print(verse_i)
+            html = DAY_TEMPLATE_TEXT[:]
+            html = html.replace("TEMPLATE_DAY", str(verse_i+1))
+            html = html.replace(
+                "TEMPLATE_SECTION_TITLE",
+                f"<u>Section {verse_i+1}: {section["name"]}</u> ({reference(verses[section["startVerse"]], verses[section["endVerse"]])})"
+            )
+            html = html.replace(
+                "TEMPLATE_CHUNK_REFERENCE",
+                reference(verses[section["startVerse"]], verses[verse_i])
+            )
+            html = html.replace(
+                "TEMPLATE_CHUNK_SCRIPTURE",
+                # TODO: Add newlines properly via <p> tags
+                "".join([v["text"] for v in verses[section["startVerse"]:verse_i]] + [f"<strong>{verses[verse_i]["text"]}</strong>"])
+            )
+            html = html.replace("TEMPLATE_CHUNK_MEDITATION", "TODO")
+            html = html.replace(
+                "TEMPLATE_CUMULATIVE_REFERENCE",
+                reference(verses[0], verses[verse_i])
+            )
+            html = html.replace(
+                "TEMPLATE_CUMULATIVE_SCRIPTURE",
+                "".join([v["text"] for v in verses[:verse_i]] + [f"<strong>{verses[verse_i]["text"]}</strong>"])
+            )
+            html = html.replace(
+                "TEMPLATE_NAVIGATION_HTML",
+                # TODO: Simplify this garbage
+                "<p>" + (f'<a href="{verse_i}.html">Prev</a>' if verse_i > 0 else "")  + " | " + (f'<a href="{verse_i+2}.html">Next</a>' if verse_i+2 < len(verses) + 1 else "") + "</p>"
+            )
+            output_path = Path(f"build/{verse_i+1}.html")
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            output_path.write_text(html)
+
+
+def test_crummy_manual(data: dict):
     for i, section in enumerate(data["sections"]):
         start_verse = data["verses"][section["startVerse"]]
         end_verse   = data["verses"][section["endVerse"]]
@@ -198,6 +242,12 @@ def main():
 
     print(reference(data["verses"][0], data["verses"][1]))
     print(reference(data["verses"][0], data["verses"][100]))
+
+
+def main():
+    site_data = write_site_data()
+    test_crummy_manual(site_data)
+    build_site(site_data)
 
 
 if __name__ == "__main__":
