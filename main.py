@@ -23,6 +23,7 @@ def get_sermon_mt_meditation_json() -> dict:
             '&nbsp;"': '"',
             "&nbsp;": " ",
             "’": "'",
+            u"\u2014": "-"
         }
         for key, value in replacements.items():
             text = text.replace(key, value)
@@ -287,7 +288,11 @@ def build_site(site_data: dict):
                 # TODO: Add newlines properly via <p> tags
                 "".join([v["text"] for v in verses[section["startVerse"]:verse_i]] + [f"<strong>{verses[verse_i]["text"]}</strong>"])
             )
-            html = html.replace("TEMPLATE_CHUNK_MEDITATION", "TODO")
+            med = verses[verse_i]["meditation"]
+            html = html.replace(
+                "TEMPLATE_CHUNK_MEDITATION",
+                f'<p>{med["text"]}</p><p>- {med["author"]}, <a href="{med["sourceLink"]}">{med["sourceTitle"]}</a></p>'
+            )
             html = html.replace(
                 "TEMPLATE_CUMULATIVE_REFERENCE",
                 reference(verses[0], verses[verse_i])
