@@ -1,6 +1,69 @@
 import json
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
+
+def get_sermon_mt_meditation_json() -> dict:
+    """
+    Get a meditation for each verse in the Sermon on the Mount.
+
+    Currently, this is super-hardcoded to the Spurgeon commentaries I found.
+    NOTE: The Spurgeon commentaries have text for most, but not all, verses.
+    """
+    def get_commentary_verses_from_html(
+            path: Path, title: str, link: str
+    ) -> dict:
+        result = {}
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        replacements = {
+            "“": '"',
+            " ”": '"',
+            "”": '"',
+            '&nbsp;"': '"',
+            "&nbsp;": " ",
+            "’": "'",
+        }
+        for key, value in replacements.items():
+            text = text.replace(key, value)
+        soup = BeautifulSoup(text)
+
+        verse_links = soup.select("a[data-reference]")
+        for vl in verse_links:
+            reference = f"Matthew {vl.get("data-reference").split(" ")[-1]}".replace(".", ":")
+            next_paras = vl.find_all_next("p")
+            commentary_text = []
+            for p in next_paras:
+                if p.get("class") and p["class"][0] == "verse":
+                    # assume the ext verse starts and we're done getting the commentary here
+                    break
+                commentary_text.append(p.text)
+            result[reference] = {
+                "text": "\n".join(commentary_text),
+                "author": "C.H. Spurgeon",
+                "sourceTitle": title,
+                "sourceLink": link
+            }
+        return result
+
+    return (
+        get_commentary_verses_from_html(
+            Path("raw_data/spurgeon-5-commentary.html"),
+            "Matthew 5 Commentary",
+            "https://www.preceptaustin.org/matthew-5-commentary-spurgeon"
+        )
+        | get_commentary_verses_from_html(
+            Path("raw_data/spurgeon-6-commentary.html"),
+            "Matthew 6 Commentary",
+            "https://www.preceptaustin.org/matthew-6-commentary-spurgeon"
+        )
+        | get_commentary_verses_from_html(
+            Path("raw_data/spurgeon-7-commentary.html"),
+            "Matthew 7 Commentary",
+            "https://www.preceptaustin.org/matthew-7-commentary-spurgeon"
+        )
+    )
+
 
 def get_sermon_mt_verses_json() -> list:
     """
@@ -9,6 +72,7 @@ def get_sermon_mt_verses_json() -> list:
     Assume each verse is in the ESV API format '[#] Text...' (verse numbers,
     won't include chapter numbers).
     """
+    meditations = get_sermon_mt_meditation_json()
     def _chpt(verse: int) -> int:
         if verse >= 82:
             return 7
@@ -16,19 +80,28 @@ def get_sermon_mt_verses_json() -> list:
             return 6
         return 5
 
-    raw_text: str = json.loads(Path("esv_text.json").read_text())["passages"][0]
-    verses = raw_text.split("[")[1:]
-    return [
-        {
-            "text": text.split("] ")[1],
-            "reference": f"Matthew {_chpt(i)}:{text.split('] ')[0]}"
+    def _verse_json(i: int, text: str) -> dict:
+        ref = f"Matthew {_chpt(i)}:{text.split('] ')[0]}"
+        placeholder = {
+            "text": "TODO - still looking for something to put here. Sorry!",
+            "author": "Admin",
+            "sourceTitle": "An Apology",
+            "sourceLink": "/"
         }
-        for i, text in enumerate(verses)
-    ]
+        return {
+            "text": text.split("] ")[1],
+            "reference": ref,
+            "meditation": meditations.get(ref, placeholder)
+        }
+
+    raw_text: str = json.loads(Path("raw_data/esv_text.json").read_text())["passages"][0]
+    verses = raw_text.split("[")[1:]
+    return [_verse_json(i, text) for i, text in enumerate(verses)]
+
 
 def get_sermon_mt_sections_json() -> list:
     """
-    Get the sections of the sermon on the mount as ESV section headings.
+    Get the sections of the Sermon on the Mount as ESV section headings.
 
     I am hardcoding this because it's faster than trying to automate it (short,
     known list and have to set the section boundaries).

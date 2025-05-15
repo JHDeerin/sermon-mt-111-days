@@ -4,4 +4,6 @@ version = "0.1.0"
 description = "Site generator for 'Sermon on the Mount in 111 Days'"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+]
