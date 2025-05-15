@@ -32,6 +32,38 @@
             color:#333;
             text-decoration: none;
         }
+
+        .diff-output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+            line-height: 1.6; /* Slightly increased for better readability with placeholders */
+
+            margin: 1em 0;
+            background: #efefef;
+            border: #333 1px solid;
+            width: fit-content;
+            padding: 0.25em;
+            border-radius: 2px;
+        }
+
+        .deleted-placeholder {
+            background-color: #ffdddd;
+            color: #c00;
+            border: 1px dashed #cc0000;
+            padding: 1px 0.3em; /* Minimal padding */
+            margin: 0 1px; /* Small margin to separate from adjacent words */
+            border-radius: 2px;
+            display: inline-block; /* Allows padding, margin, and to sit in line */
+            line-height: normal; /* Avoids unusual line height inheritance */
+            vertical-align: baseline; /* Align with surrounding text */
+        }
+
+        .added {
+            background-color: #fff0b3;
+            color: #543A00;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +76,7 @@
         <p>Matthew 6:5-11</p>
         <details>
             <summary>Reveal (new text today in bold)</summary>
-            <p>"And when you pray, you must not be like the hypocrites. For they love to stand and pray in the synagogues and at the street corners, that they may be seen by others. Truly, I say to you, they have received their reward. But when you pray, go into your room and shut the door and pray to your Father who is in secret. And your Father who sees in secret will reward you.
+            <p id="reference-text-chunk">"And when you pray, you must not be like the hypocrites. For they love to stand and pray in the synagogues and at the street corners, that they may be seen by others. Truly, I say to you, they have received their reward. But when you pray, go into your room and shut the door and pray to your Father who is in secret. And your Father who sees in secret will reward you.
 
   "And when you pray, do not heap up empty phrases as the Gentiles do, for they think that they will be heard for their many words. Do not be like them, for your Father knows what you need before you ask him. Pray then like this:
 
@@ -56,18 +88,29 @@
     <strong>Give us this day our daily bread,
     </strong></p>
         </details>
+
         <p>Practice:</p>
-        <textarea name="" id=""></textarea>
-        <p>Check my answer (TODO): <input type="checkbox"></p>
+        <textarea id="user-text-chunk"></textarea>
+
+        <p><button id="compare-button-chunk">Check My Answer</button></p>
+        <div class="results-container">
+            <div class="output-box">
+                <div id="diff-output-chunk" class="diff-output"><i>No answer checked yet</i></div>
+                <p><i>Results key: <span class="deleted-placeholder"> </span> = missing word, <span class="added">highlight</span> = extra word, ✅ = all correct!</i></p>
+            </div>
+        </div>
+
         <details>
             <summary>Meditation for today</summary>
             TODO
         </details>
+
         <hr>
+
         <h3><u>The Whole Sermon So Far:</u> Matthew 5:1-6:11</h3>
         <details>
             <summary>Reveal (new text today in bold)</summary>
-            <p>Seeing the crowds, he went up on the mountain, and when he sat down, his disciples came to him.
+            <p id="reference-text-whole">Seeing the crowds, he went up on the mountain, and when he sat down, his disciples came to him.
 
   And he opened his mouth and taught them, saying:
 
@@ -123,13 +166,23 @@
     <strong>Give us this day our daily bread,
     </strong></p>
         </details>
+
         <p>Practice:</p>
-        <textarea name="" id=""></textarea>
-        <p>Check my answer: <input type="checkbox"></p>
+        <textarea id="user-text-whole"></textarea>
+
+        <p><button id="compare-button-whole">Check My Answer</button></p>
+        <div class="results-container">
+            <div class="output-box">
+                <div id="diff-output-whole" class="diff-output"><i>No answer checked yet</i></div>
+            </div>
+        </div>
+
         <nav>
             <p><a href="58.html">Prev</a> | <a href="60.html">Next</a></p>
         </nav>
         <p><sub><i>All scripture passages (excepting the meditations) come from the <a href="http://www.esv.org">English Standard Version</a></i></sub></p>
     </main>
+
+    <script src="diff_highlight.js"></script>
 </body>
 </html>
