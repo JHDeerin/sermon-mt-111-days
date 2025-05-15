@@ -270,6 +270,17 @@ def write_site_data() -> dict:
 def build_site(site_data: dict):
     DAY_TEMPLATE_TEXT = Path("template.html").read_text()
     verses = site_data["verses"]
+
+    def _str_to_html(s: str) -> str:
+        return "\n".join([f"<p>{x}</p>" for x in s.split("\n")])
+
+    def _verses_html(start: int, end: int) -> str:
+        return _str_to_html("".join(
+            [v["text"] for v in verses[start:end]]
+            # strip the last verse to avoid paragraph breaking the </strong>
+            + [f"<strong>{verses[end]["text"].strip()}</strong>"]
+        ))
+
     for i, section in enumerate(site_data["sections"]):
         for verse_i in range(section["startVerse"], section["endVerse"]+1):
             print(verse_i)
@@ -285,13 +296,12 @@ def build_site(site_data: dict):
             )
             html = html.replace(
                 "TEMPLATE_CHUNK_SCRIPTURE",
-                # TODO: Add newlines properly via <p> tags
-                "".join([v["text"] for v in verses[section["startVerse"]:verse_i]] + [f"<strong>{verses[verse_i]["text"]}</strong>"])
+                _verses_html(section["startVerse"], verse_i)
             )
             med = verses[verse_i]["meditation"]
             html = html.replace(
                 "TEMPLATE_CHUNK_MEDITATION",
-                f'<p>{med["text"]}</p><p>- {med["author"]}, <a href="{med["sourceLink"]}">{med["sourceTitle"]}</a></p>'
+                f'{_str_to_html(med["text"])}<p>- {med["author"]}, <a href="{med["sourceLink"]}">{med["sourceTitle"]}</a></p>'
             )
             html = html.replace(
                 "TEMPLATE_CUMULATIVE_REFERENCE",
@@ -299,7 +309,7 @@ def build_site(site_data: dict):
             )
             html = html.replace(
                 "TEMPLATE_CUMULATIVE_SCRIPTURE",
-                "".join([v["text"] for v in verses[:verse_i]] + [f"<strong>{verses[verse_i]["text"]}</strong>"])
+                _verses_html(0, verse_i)
             )
             html = html.replace(
                 "TEMPLATE_NAVIGATION_HTML",
