@@ -281,9 +281,17 @@ def build_site(site_data: dict):
             + [f"<strong>{verses[end]["text"].strip()}</strong>"]
         ))
 
+    def _textarea_minheight_css(reference_text: str) -> str:
+        if len(reference_text) < 200:
+            return "5em"
+        return f"{len(reference_text)/40}em"
+
     for i, section in enumerate(site_data["sections"]):
         for verse_i in range(section["startVerse"], section["endVerse"]+1):
             print(verse_i)
+            verses_chunk_html = _verses_html(section["startVerse"], verse_i)
+            verses_whole_html = _verses_html(0, verse_i)
+
             html = DAY_TEMPLATE_TEXT[:]
             html = html.replace("TEMPLATE_DAY", str(verse_i+1))
             html = html.replace(
@@ -294,9 +302,10 @@ def build_site(site_data: dict):
                 "TEMPLATE_CHUNK_REFERENCE",
                 reference(verses[section["startVerse"]], verses[verse_i])
             )
+            html = html.replace("TEMPLATE_CHUNK_SCRIPTURE", verses_chunk_html)
             html = html.replace(
-                "TEMPLATE_CHUNK_SCRIPTURE",
-                _verses_html(section["startVerse"], verse_i)
+                "TEMPLATE_MIN_CHUNK_TEXTAREA_HEIGHT",
+                _textarea_minheight_css(verses_chunk_html)
             )
             med = verses[verse_i]["meditation"]
             html = html.replace(
@@ -309,7 +318,11 @@ def build_site(site_data: dict):
             )
             html = html.replace(
                 "TEMPLATE_CUMULATIVE_SCRIPTURE",
-                _verses_html(0, verse_i)
+                verses_whole_html
+            )
+            html = html.replace(
+                "TEMPLATE_MIN_WHOLE_TEXTAREA_HEIGHT",
+                _textarea_minheight_css(verses_whole_html)
             )
             html = html.replace(
                 "TEMPLATE_NAVIGATION_HTML",

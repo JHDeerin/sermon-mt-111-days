@@ -25,7 +25,14 @@
 
         textarea {
             width: 100%;
-            min-height: 5em;
+        }
+
+        textarea#user-text-chunk {
+            min-height: min(TEMPLATE_MIN_CHUNK_TEXTAREA_HEIGHT, 50vh);
+        }
+
+        textarea#user-text-whole {
+            min-height: min(TEMPLATE_MIN_WHOLE_TEXTAREA_HEIGHT, 80vh);
         }
 
         h1 a {
