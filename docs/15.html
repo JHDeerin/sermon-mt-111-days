@@ -33,14 +33,33 @@
 
         textarea {
             width: 100%;
+            min-height: 5em;
+            max-height: 50vh;
+            padding: 0;
+            resize: none;
+            border: none;
+        }
+        textarea:focus-visible {
+            outline: none;
         }
 
-        textarea#user-text-chunk {
-            min-height: min(10.375em, 50vh);
+        .practice-input {
+            box-sizing: border-box;
+            border: #aaa 1px solid;
+            border-radius: 2px;
+            padding: 0.25em;
+            width: 100%;
         }
-
-        textarea#user-text-whole {
-            min-height: min(38.45em, 80vh);
+        .practice-input button {
+            background-color: #df5f43;
+            color: white;
+            border-radius: 0.5em;
+            border: none;
+            padding: 0.5em;
+        }
+        .practice-input button:hover {
+            background-color: #f36748;
+            cursor: pointer;
         }
 
         h1 a {
@@ -49,6 +68,7 @@
         }
 
         .diff-output {
+            box-sizing: border-box;
             white-space: pre-wrap;
             word-wrap: break-word;
             font-family: monospace;
@@ -56,8 +76,9 @@
 
             margin: 1em 0;
             background: #efefef;
-            border: #333 1px solid;
+            border: #aaa 1px solid;
             width: fit-content;
+            max-width: 100%;
             padding: 0.25em;
             border-radius: 2px;
         }
@@ -99,9 +120,10 @@
         </details>
 
         <p>Practice:</p>
-        <textarea id="user-text-chunk"></textarea>
-
-        <p><button id="compare-button-chunk">Check My Answer</button></p>
+        <div class="practice-input">
+            <textarea id="user-text-chunk"></textarea>
+            <div style="display: flex; flex-direction: row-reverse;"><button id="compare-button-chunk">Check My Answer</button></div>
+        </div>
         <div class="results-container">
             <div class="output-box">
                 <div id="diff-output-chunk" class="diff-output"><i>No answer checked yet</i></div>
@@ -151,9 +173,10 @@
         </details>
 
         <p>Practice:</p>
-        <textarea id="user-text-whole"></textarea>
-
-        <p><button id="compare-button-whole">Check My Answer</button></p>
+        <div class="practice-input">
+            <textarea id="user-text-whole"></textarea>
+            <div style="display: flex; flex-direction: row-reverse;"><button id="compare-button-whole">Check My Answer</button></div>
+        </div>
         <div class="results-container">
             <div class="output-box">
                 <div id="diff-output-whole" class="diff-output"><i>No answer checked yet</i></div>
@@ -167,5 +190,23 @@
     </main>
 
     <script src="diff_highlight.js"></script>
+    <script>
+        function registerPracticeText(textareaId) {
+            const textarea = document.getElementById(textareaId);
+
+            // resize textarea to fit content when typed
+            textarea.addEventListener('input', function() {
+                // Temporarily set height to auto to get the correct scrollHeight
+                this.style.height = 'auto';
+                // Set the height to the scrollHeight (min height needed for content)
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+
+            // Trigger resize on page load for pre-filled content if any
+            textarea.dispatchEvent(new Event('input'));
+        }
+        registerPracticeText("user-text-chunk");
+        registerPracticeText("user-text-whole");
+    </script>
 </body>
 </html>
