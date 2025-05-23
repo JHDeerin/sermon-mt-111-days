@@ -291,7 +291,7 @@ def build_site(site_data: dict):
             html = html.replace("TEMPLATE_DAY", str(verse_i+1))
             html = html.replace(
                 "TEMPLATE_SECTION_TITLE",
-                f"<u>Section {i+1}: {section["name"]}</u> ({reference(verses[section["startVerse"]], verses[section["endVerse"]])})"
+                f"Section {i+1}: {section["name"]} ({reference(verses[section["startVerse"]], verses[section["endVerse"]])})"
             )
             html = html.replace(
                 "TEMPLATE_CHUNK_REFERENCE",
