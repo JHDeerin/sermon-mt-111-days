@@ -6,6 +6,8 @@
 function normalizeAndSplit(text) {
     const cleanedText = text
         .toLowerCase()
+        // keep contractions as one word, e.g. "don't" -> "dont", not "don t"
+        .replace(/[']/g, "")
         // Replace punctuation with a space to ensure word separation
         // e.g. "word.word" becomes "word word" after split
         .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"']/g, " ")
