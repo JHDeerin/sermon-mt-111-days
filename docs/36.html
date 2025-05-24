@@ -48,6 +48,9 @@
             resize: none;
             border: none;
             font-size: 1rem; /*increase font size to avoid zoom-in behavior on iOS*/
+            word-wrap: break-word;
+            font-family: monospace;
+            color: #333;
         }
         textarea:focus-visible {
             outline: none;
@@ -61,7 +64,7 @@
             width: 100%;
         }
         .practice-input button {
-            background-color: #df5f43;
+            background-color: #4ab27a;
             color: white;
             border-radius: 0.5em;
             border: none;
@@ -69,7 +72,7 @@
             font-size: 1em;
         }
         .practice-input button:hover {
-            background-color: #f36748;
+            background-color: #53c783;
             cursor: pointer;
         }
 
@@ -78,7 +81,9 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             font-family: monospace;
+            font-size: 1rem;
             line-height: 1.6; /* Slightly increased for better readability with placeholders */
+            color: #555;
 
             margin: 0;
             background: #efefef;
@@ -103,7 +108,7 @@
 
         .added {
             background-color: #fff0b3;
-            color: #543A00;
+            /* color: #543A00; */
             border-radius: 2px;
         }
     </style>
