@@ -227,6 +227,17 @@ function generateCombinedHtmlFromOps(originalUserText, diffOps) {
     return html;
 }
 
+function getDiffOutputHtml(usrText, refText) {
+    const cleanRefWords = normalizeAndSplit(refText);
+    const cleanUserWords = normalizeAndSplit(usrText);
+
+    const lcs = getLCS(cleanRefWords, cleanUserWords);
+
+    const diffOperations = buildDiffOps(cleanRefWords, cleanUserWords, lcs);
+    const diffOutput = generateCombinedHtmlFromOps(usrText, diffOperations);
+    return diffOutput;
+}
+
 
 function registerDiffDisplay(
     referenceTextElId,
@@ -251,13 +262,7 @@ function registerDiffDisplay(
         console.log(refText);
         console.log(usrText)
 
-        const cleanRefWords = normalizeAndSplit(refText);
-        const cleanUserWords = normalizeAndSplit(usrText);
-
-        const lcs = getLCS(cleanRefWords, cleanUserWords);
-
-        const diffOperations = buildDiffOps(cleanRefWords, cleanUserWords, lcs);
-        const diffOutput = generateCombinedHtmlFromOps(usrText, diffOperations);
+        const diffOutput = getDiffOutputHtml(usrText, refText);
         if (diffOutput == usrText) {
             combinedOutputDiv.innerHTML = '✅';
             return;
@@ -268,18 +273,7 @@ function registerDiffDisplay(
     console.log(`added event listener to ${compareButton}`)
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    registerDiffDisplay(
-        'reference-text-chunk',
-        'user-text-chunk',
-        'diff-output-chunk',
-        'compare-button-chunk',
-    );
-    registerDiffDisplay(
-        'reference-text-whole',
-        'user-text-whole',
-        'diff-output-whole',
-        'compare-button-whole',
-    );
-});
+/* Hack to test this code, global is not available in the browser */
+if (typeof global !== 'undefined') {
+    global.getDiffOutputHtml = getDiffOutputHtml;
+}
