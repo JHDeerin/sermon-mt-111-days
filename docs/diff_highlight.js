@@ -7,10 +7,10 @@ function normalizeAndSplit(text) {
     const cleanedText = text
         .toLowerCase()
         // keep contractions as one word, e.g. "don't" -> "dont", not "don t"
-        .replace(/[']/g, "")
+        .replace(/['‘’]/g, "")
         // Replace punctuation with a space to ensure word separation
         // e.g. "word.word" becomes "word word" after split
-        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"']/g, " ")
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"'“”]/g, " ")
         .replace(/\s+/g, " ") // Collapse multiple spaces to single
         .trim();
     return cleanedText === "" ? [] : cleanedText.split(" ");
@@ -19,7 +19,7 @@ function normalizeAndSplit(text) {
 // Helper function to normalize a single word segment for comparison
 // This is used when iterating through original segments
 function normalizeWordSegment(word) {
-    return word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"']/g, "");
+    return word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"'‘’“”]/g, "");
 }
 
 
