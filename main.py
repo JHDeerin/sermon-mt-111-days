@@ -35,8 +35,8 @@ def get_sermon_mt_meditation_json() -> dict:
             next_paras = vl.find_all_next("p")
             commentary_text = []
             for p in next_paras:
-                if p.get("class") and p["class"][0] == "verse":
-                    # assume the ext verse starts and we're done getting the commentary here
+                if p.get("class") and p["class"][0] in ["verse", "author"]:
+                    # assume the next verse starts and we're done getting the commentary here
                     break
                 commentary_text.append(p.text)
             result[reference] = {
