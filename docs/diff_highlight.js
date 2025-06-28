@@ -265,15 +265,16 @@ function registerDiffDisplay(
         console.log(usrText);
 
         const diffOutput = getDiffOutputHtml(usrText, refText);
-        if (diffOutput == usrText) {
-            userTextarea.innerHTML = diffOutput; // still set to clear e.g. old extra word higlighting
+        // always set to clear e.g. old extra word highlighting
+        userTextarea.innerHTML = diffOutput;
+        if (diffOutput.trim() == usrText.trim()) {
             resultDiv.innerHTML = '✅';
             return;
         }
         const deletedCnt = (diffOutput.match(/class="deleted-placeholder"/g) || []).length
         const extraCnt = (diffOutput.match(/class="added"/g) || []).length
         resultDiv.innerHTML = `${deletedCnt} missing, ${extraCnt} extra`;
-        userTextarea.innerHTML = diffOutput;
+
         console.log(diffOutput);
     });
     console.log(`added event listener to ${compareButton}`)
