@@ -40,7 +40,7 @@
             border-left: #555 0.5em solid;
         }
 
-        textarea {
+        .textarea {
             width: 100%;
             min-height: 5em;
             max-height: 40vh;
@@ -51,9 +51,17 @@
             word-wrap: break-word;
             font-family: monospace;
             color: #333;
+            overflow-y: auto;
         }
-        textarea:focus-visible {
+        .textarea:focus-visible {
             outline: none;
+        }
+        [contenteditable=plaintext-only]:empty:before{
+            /* adds placeholder text */
+            content: attr(placeholder);
+            color: #555;
+            pointer-events: none;
+            display: block; /* For Firefox */
         }
 
         .practice-input {
@@ -76,7 +84,7 @@
             cursor: pointer;
         }
 
-        .diff-output {
+        .result-output {
             box-sizing: border-box;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -132,10 +140,10 @@
         <p>Practice:</p>
         <div class="practice-box">
             <div class="practice-input">
-                <textarea id="user-text-chunk" placeholder="Type today's chunk from memory"></textarea>
+                <div class="textarea" id="user-text-chunk" placeholder="Type today's chunk from memory" contenteditable="plaintext-only"></div>
                 <div style="display: flex; flex-direction: row-reverse;"><button id="compare-button-chunk">Check My Answer</button></div>
             </div>
-            <div id="diff-output-chunk" class="diff-output"><i>No answer checked yet</i></div>
+            <div id="result-output-chunk" class="result-output"><i>No answer checked yet</i></div>
         </div>
 
         <p><i>Results key: <span class="deleted-placeholder"> </span> = missing word, <span class="added">highlight</span> = extra word, ✅ = all correct!</i></p>
@@ -202,10 +210,10 @@
         <p>Practice:</p>
         <div class="practice-box">
             <div class="practice-input">
-                <textarea id="user-text-whole" placeholder="Type all the verses so far from memory"></textarea>
+                <div class="textarea" id="user-text-whole" placeholder="Type all the verses so far from memory" contenteditable="plaintext-only"></div>
                 <div style="display: flex; flex-direction: row-reverse;"><button id="compare-button-whole">Check My Answer</button></div>
             </div>
-            <div id="diff-output-whole" class="diff-output"><i>No answer checked yet</i></div>
+            <div id="result-output-whole" class="result-output"><i>No answer checked yet</i></div>
         </div>
 
         <nav>
@@ -236,13 +244,13 @@
         registerDiffDisplay(
             'reference-text-chunk',
             'user-text-chunk',
-            'diff-output-chunk',
+            'result-output-chunk',
             'compare-button-chunk',
         );
         registerDiffDisplay(
             'reference-text-whole',
             'user-text-whole',
-            'diff-output-whole',
+            'result-output-whole',
             'compare-button-whole',
         );
     </script>

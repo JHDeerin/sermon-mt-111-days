@@ -3,6 +3,8 @@
 // Helper function to normalize text for comparison
 // Removes punctuation, converts to lowercase, and collapses multiple spaces.
 // Returns an array of "clean" words.
+const IGNORE_CHARS_REGEX = /[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"'‘’“”]/g;
+
 function normalizeAndSplit(text) {
     const cleanedText = text
         .toLowerCase()
@@ -10,7 +12,7 @@ function normalizeAndSplit(text) {
         .replace(/['‘’]/g, "")
         // Replace punctuation with a space to ensure word separation
         // e.g. "word.word" becomes "word word" after split
-        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"'“”]/g, " ")
+        .replace(IGNORE_CHARS_REGEX, " ")
         .replace(/\s+/g, " ") // Collapse multiple spaces to single
         .trim();
     return cleanedText === "" ? [] : cleanedText.split(" ");
@@ -19,7 +21,7 @@ function normalizeAndSplit(text) {
 // Helper function to normalize a single word segment for comparison
 // This is used when iterating through original segments
 function normalizeWordSegment(word) {
-    return word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"'‘’“”]/g, "");
+    return word.toLowerCase().replace(IGNORE_CHARS_REGEX, "");
 }
 
 
@@ -224,7 +226,7 @@ function generateCombinedHtmlFromOps(originalUserText, diffOps) {
             break;
         }
     }
-    return html;
+    return html.trim();
 }
 
 function getDiffOutputHtml(usrText, refText) {
@@ -242,7 +244,7 @@ function getDiffOutputHtml(usrText, refText) {
 function registerDiffDisplay(
     referenceTextElId,
     inputElId,
-    outputElId,
+    resultElId,
     buttonId
 ) {
     const compareButton = document.getElementById(buttonId);
@@ -250,7 +252,7 @@ function registerDiffDisplay(
         const referenceTextarea = document.getElementById(referenceTextElId);
         const userTextarea = document.getElementById(inputElId);
 
-        const combinedOutputDiv = document.getElementById(outputElId);
+        const resultDiv = document.getElementById(resultElId);
 
         console.log(referenceTextarea);
         // hack to get innerText of a <detail> element that's still folded
@@ -258,16 +260,20 @@ function registerDiffDisplay(
         _.innerHTML = referenceTextarea.innerHTML;
         const refText = _.innerText;
 
-        const usrText = userTextarea.value;
+        const usrText = userTextarea.innerText;
         console.log(refText);
-        console.log(usrText)
+        console.log(usrText);
 
         const diffOutput = getDiffOutputHtml(usrText, refText);
         if (diffOutput == usrText) {
-            combinedOutputDiv.innerHTML = '✅';
+            userTextarea.innerHTML = diffOutput; // still set to clear e.g. old extra word higlighting
+            resultDiv.innerHTML = '✅';
             return;
         }
-        combinedOutputDiv.innerHTML = diffOutput;
+        const deletedCnt = (diffOutput.match(/class="deleted-placeholder"/g) || []).length
+        const extraCnt = (diffOutput.match(/class="added"/g) || []).length
+        resultDiv.innerHTML = `${deletedCnt} missing, ${extraCnt} extra`;
+        userTextarea.innerHTML = diffOutput;
         console.log(diffOutput);
     });
     console.log(`added event listener to ${compareButton}`)
