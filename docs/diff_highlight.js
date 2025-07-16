@@ -166,6 +166,48 @@ function generateCombinedHtmlFromOps(originalUserText, diffOps) {
                     continue; // Move to next segment, op remains.
                 }
 
+                // Check if this segment contains multiple words after normalization
+                const segmentWords = currentOriginalUserSegment
+                    .toLowerCase()
+                    .replace(/[''']/g, "")
+                    .replace(IGNORE_CHARS_REGEX, " ")
+                    .replace(/\s+/g, " ")
+                    .trim()
+                    .split(" ")
+                    .filter(word => word !== "");
+
+                // If the segment contains multiple words, try to match them with multiple ops
+                if (segmentWords.length > 1) {
+                    let matchedWords = 0;
+                    let tempOpsIdx = opsIdx;
+                    
+                    // Check if the next ops match the words in this segment
+                    for (let i = 0; i < segmentWords.length && tempOpsIdx < diffOps.length; i++) {
+                        const segmentWord = segmentWords[i];
+                        const tempOp = diffOps[tempOpsIdx];
+                        
+                        if ((tempOp.type === 'common' || tempOp.type === 'added') && tempOp.text === segmentWord) {
+                            matchedWords++;
+                            tempOpsIdx++;
+                        } else {
+                            break;
+                        }
+                    }
+                    
+                    // If all words in the segment match consecutive ops, process them together
+                    if (matchedWords === segmentWords.length) {
+                        if (diffOps[opsIdx].type === 'common') {
+                            html += currentOriginalUserSegment;
+                        } else { // 'added'
+                            html += `<span class="added">${currentOriginalUserSegment}</span>`;
+                        }
+                        opsIdx += matchedWords;
+                        userSegIdx++;
+                        processedCleanUserWords += matchedWords;
+                        continue;
+                    }
+                }
+
                 // Assert: normalizedSegment should be op.text for common/added
                 if (normalizedSegment === op.text) {
                     if (op.type === 'common') {
