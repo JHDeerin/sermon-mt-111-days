@@ -308,7 +308,8 @@ function registerDiffDisplay(
 
         const diffOutput = getDiffOutputHtml(usrText, refText);
         // always set to clear e.g. old extra word highlighting
-        userTextarea.innerHTML = diffOutput;
+        // Convert newlines to <br> tags to preserve line breaks across browsers (esp. iOS Safari)
+        userTextarea.innerHTML = diffOutput.replace(/\n/g, '<br>');
         if (diffOutput.trim() == usrText.trim()) {
             resultDiv.innerHTML = '✅';
             return;
