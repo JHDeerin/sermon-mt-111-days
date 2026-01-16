@@ -25,6 +25,8 @@ This will create the static HTML files for the site and dump them in the `docs` 
 npm test
 ```
 
+For manual testing, open any of the HTML files in `docs` as a file in your browser.
+
 ### Deploy
 
 Just push to the `main` branch, and GitHub will deploy the `docs` folder to GitHub Pages.
